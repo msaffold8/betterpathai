@@ -8,10 +8,10 @@ import { useMounted } from "../../../hooks/use-mounted";
 import { usePageView } from "../../../hooks/use-page-view";
 import { useSelection } from "../../../hooks/use-selection";
 import { Layout as DashboardLayout } from "../../../layouts/dashboard";
-import { ProductCreateDialog } from "../../../sections/dashboard/products/product-create-dialog";
-import { ProductsSearch } from "../../../sections/dashboard/products/products-search";
-import { ProductsStats } from "../../../sections/dashboard/products/products-stats";
-import { ProductsTable } from "../../../sections/dashboard/products/products-table";
+import { ProductCreateDialog } from "../../../sections/dashboard/products/course-create-dialog";
+import { ProductsSearch } from "../../../sections/dashboard/products/courses-search";
+import { ProductsStats } from "../../../sections/dashboard/products/courses-stats";
+import { ProductsTable } from "../../../sections/dashboard/products/courses-table";
 
 const useProductsSearch = () => {
   const [state, setState] = useState({
