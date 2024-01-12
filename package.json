@@ -1,8 +1,7 @@
 {
-  "name": "@devias/Better Path",
+  "name": "betterpath",
   "version": "3.0.0",
-  "author": "Mel",
-  "homepage": "https://devias.io",
+  "author": "Mel Saffold",
   "private": true,
   "scripts": {
     "dev": "next",
