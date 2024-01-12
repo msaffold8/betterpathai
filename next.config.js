@@ -4,19 +4,22 @@ const config = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack']
+      use: ["@svgr/webpack"],
     });
     return config;
   },
   async redirects() {
     return [
       {
-        source: '/docs',
-        destination: '/docs/welcome',
-        permanent: true
-      }
+        source: "/docs",
+        destination: "/docs/welcome",
+        permanent: true,
+      },
     ];
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = config;

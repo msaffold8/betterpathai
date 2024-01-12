@@ -24,11 +24,7 @@ const CourseModuleRow = ({ module }) => {
       <TableCell>{module.description}</TableCell>
       <TableCell>
         <Button
-          startIcon={
-            <SvgIcon fontSize="small">
-              <EditIcon />
-            </SvgIcon>
-          }
+          startIcon={<SvgIcon fontSize="small">{/* <EditIcon /> */}</SvgIcon>}
           variant="contained"
         >
           Edit

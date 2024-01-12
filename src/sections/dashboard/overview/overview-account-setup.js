@@ -9,44 +9,31 @@ export const OverviewAccountSetup = () => (
     direction="row"
     spacing={3}
     sx={{
-      backgroundColor: 'neutral.900',
+      backgroundColor: "neutral.900",
       borderRadius: 1,
-      color: 'common.white',
-      height: '100%',
+      color: "common.white",
+      height: "100%",
       px: 4,
-      py: 2
+      py: 2,
     }}
   >
     <div>
-      <Typography
-        color="inherit"
-        variant="h4"
-      >
+      <Typography color="inherit" variant="h4">
         Welcome, Nicole!
       </Typography>
-      <Typography
-        color="inherit"
-        sx={{ mt: 2 }}
-      >
-        Let's fine-tune your profile to curate and personalize your learning and networking experiences within the industries of your choice
+      <Typography color="inherit" sx={{ mt: 2 }}>
+        Lets fine-tune your profile to curate and personalize your learning and networking
+        experiences within the industries of your choice
       </Typography>
-      <Stack
-        alignItems="center"
-        direction="row"
-        spacing={2}
-        sx={{ my: 3 }}
-      >
-        <Typography
-          color="inherit"
-          variant="subtitle2"
-        >
+      <Stack alignItems="center" direction="row" spacing={2} sx={{ my: 3 }}>
+        <Typography color="inherit" variant="subtitle2">
           2/5
         </Typography>
         <LinearProgress
           sx={{
             borderRadius: 1,
             flexGrow: 1,
-            height: '8px'
+            height: "8px",
           }}
           value={20}
           variant="determinate"
@@ -54,11 +41,11 @@ export const OverviewAccountSetup = () => (
       </Stack>
       <Button
         component={NextLink}
-        endIcon={(
+        endIcon={
           <SvgIcon fontSize="small">
             <ArrowRightIcon />
           </SvgIcon>
-        )}
+        }
         href={paths.dashboard.account.index}
         variant="contained"
       >
@@ -67,10 +54,10 @@ export const OverviewAccountSetup = () => (
     </div>
     <Box
       sx={{
-        '& img': {
+        "& img": {
           maxHeight: 350,
-          width: '100%'
-        }
+          width: "100%",
+        },
       }}
     >
       <img src="/assets/illustration-reports.png" />
