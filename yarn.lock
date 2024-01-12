@@ -3862,10 +3862,10 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@heroicons/react@^2.0.15":
-  "integrity" "sha512-CZ2dGWgWG3/z5LEoD5D3MEr1syn45JM/OB2aDpw531Ryecgkz2V7TWQ808P0lva7zP003PVW6WlwbofsYyga3A=="
-  "resolved" "https://registry.npmjs.org/@heroicons/react/-/react-2.0.15.tgz"
-  "version" "2.0.15"
+"@heroicons/react@^2.1.1":
+  "integrity" "sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA=="
+  "resolved" "https://registry.npmjs.org/@heroicons/react/-/react-2.1.1.tgz"
+  "version" "2.1.1"
 
 "@humanwhocodes/config-array@^0.11.8":
   "integrity" "sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g=="

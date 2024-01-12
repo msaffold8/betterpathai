@@ -1,6 +1,6 @@
 // courses-stats.js
 import React from "react";
-import SchoolIcon from "@heroicons/react/24/outline/SchoolIcon";
+// import SchoolIcon from "@heroicons/react/24/outline/SchoolIcon";
 import UsersIcon from "@heroicons/react/24/outline/UsersIcon";
 import StarIcon from "@heroicons/react/24/outline/StarIcon";
 import CalendarIcon from "@heroicons/react/24/outline/CalendarIcon";
@@ -10,7 +10,7 @@ const stats = [
   {
     icon: (
       <SvgIcon color="primary" fontSize="small">
-        <SchoolIcon />
+        {/* <SchoolIcon /> */}
       </SvgIcon>
     ),
     data: "120",
