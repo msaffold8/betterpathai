@@ -1,187 +1,104 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import PlusIcon from "@heroicons/react/24/outline/PlusIcon";
 import { Box, Button, Card, Container, Divider, Stack, SvgIcon, Typography } from "@mui/material";
-import { productsApi } from "../../../api/products";
+import { coursesApi } from "../../../api/courses"; // Assuming the courses API endpoint
 import { useDialog } from "../../../hooks/use-dialog";
-import { useMounted } from "../../../hooks/use-mounted";
 import { usePageView } from "../../../hooks/use-page-view";
 import { useSelection } from "../../../hooks/use-selection";
 import { Layout as DashboardLayout } from "../../../layouts/dashboard";
-import { ProductCreateDialog } from "../../../sections/dashboard/products/course-create-dialog";
-import { ProductsSearch } from "../../../sections/dashboard/products/courses-search";
-import { ProductsStats } from "../../../sections/dashboard/products/courses-stats";
-import { ProductsTable } from "../../../sections/dashboard/products/courses-table";
+import { CourseCreateDialog } from "../../../sections/dashboard/courses/course-create-dialog";
+import { CoursesSearch } from "../../../sections/dashboard/courses/courses-search";
+import { CoursesStats } from "../../../sections/dashboard/courses/courses-stats";
+import { CoursesTable } from "../../../sections/dashboard/courses/courses-table";
 
-const useProductsSearch = () => {
+const useCoursesSearch = () => {
   const [state, setState] = useState({
-    filters: [],
-    page: 0,
     query: "",
+    page: 0,
     rowsPerPage: 5,
     sortBy: "createdAt",
     sortDir: "desc",
     view: "all",
   });
 
-  const handleFiltersApply = useCallback((filters) => {
-    setState((prevState) => ({
-      ...prevState,
-      page: 0,
-      filters,
-    }));
-  }, []);
-
-  const handleFiltersClear = useCallback(() => {
-    setState((prevState) => ({
-      ...prevState,
-      page: 0,
-      filters: [],
-    }));
+  const handleQueryChange = useCallback((query) => {
+    setState((prevState) => ({ ...prevState, query }));
   }, []);
 
   const handlePageChange = useCallback((page) => {
-    setState((prevState) => ({
-      ...prevState,
-      page,
-    }));
+    setState((prevState) => ({ ...prevState, page }));
   }, []);
 
-  const handleQueryChange = useCallback((query) => {
-    setState((prevState) => ({
-      ...prevState,
-      page: 0,
-      query,
-    }));
+  const handleRowsPerPageChange = useCallback((rowsPerPage) => {
+    setState((prevState) => ({ ...prevState, rowsPerPage }));
   }, []);
 
   const handleSortChange = useCallback((sortBy) => {
     setState((prevState) => {
-      const sortDir = prevState.sortBy === sortBy && prevState.sortDir === "asc" ? "desc" : "asc";
-
-      return {
-        ...prevState,
-        page: 0,
-        sortBy,
-        sortDir,
-      };
+      const sortDir = prevState.sortDir === "asc" ? "desc" : "asc";
+      return { ...prevState, sortBy, sortDir };
     });
   }, []);
 
-  const handleViewChange = useCallback((view) => {
-    setState((prevState) => ({
-      ...prevState,
-      page: 0,
-      view,
-    }));
-  }, []);
-
   return {
-    handleFiltersApply,
-    handleFiltersClear,
-    handlePageChange,
+    ...state,
     handleQueryChange,
+    handlePageChange,
+    handleRowsPerPageChange,
     handleSortChange,
-    handleViewChange,
-    state,
   };
 };
 
-const useProductsStore = (searchState) => {
-  const isMounted = useMounted();
-  const [state, setState] = useState({ isLoading: true });
+const useCoursesStore = (searchState) => {
+  const [state, setState] = useState({ isLoading: true, courses: [], error: null });
 
-  const handleProductsGet = useCallback(
-    async (searchState) => {
-      setState({ isLoading: true });
+  useEffect(() => {
+    setState({ isLoading: true });
+    coursesApi
+      .getCourses(searchState)
+      .then((response) => setState({ isLoading: false, courses: response.data, error: null }))
+      .catch((error) => setState({ isLoading: false, courses: [], error: error.message }));
+  }, [searchState]);
 
-      try {
-        const response = await productsApi.getProducts({
-          filters: searchState.filters,
-          page: searchState.page,
-          query: searchState.query,
-          rowsPerPage: searchState.rowsPerPage,
-          sortBy: searchState.sortBy,
-          sortDir: searchState.sortDir,
-          view: searchState.view,
-        });
-
-        if (isMounted()) {
-          setState({
-            data: {
-              products: response.data,
-              productsCount: response.count,
-            },
-          });
-        }
-      } catch (err) {
-        console.error(err);
-
-        if (isMounted()) {
-          setState({ error: "Something went wrong" });
-        }
-      }
-    },
-    [isMounted]
-  );
-
-  useEffect(
-    () => {
-      handleProductsGet(searchState);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [searchState]
-  );
-
-  return {
-    state,
-  };
-};
-
-const useProductsIds = (storeState) => {
-  return useMemo(() => {
-    if (!storeState.data) {
-      return [];
-    }
-
-    return storeState.data.products.map((product) => product.id);
-  }, [storeState]);
+  return state;
 };
 
 const Page = () => {
-  const productsSearch = useProductsSearch();
-  const productsStore = useProductsStore(productsSearch.state);
-  const productsIds = useProductsIds(productsStore.state);
-  const productsSelection = useSelection(productsIds);
+  const {
+    query,
+    page,
+    rowsPerPage,
+    sortBy,
+    sortDir,
+    handleQueryChange,
+    handlePageChange,
+    handleRowsPerPageChange,
+    handleSortChange,
+  } = useCoursesSearch();
+  const { isLoading, courses, error } = useCoursesStore({
+    query,
+    page,
+    rowsPerPage,
+    sortBy,
+    sortDir,
+  });
+  const selection = useSelection(courses.map((course) => course.id));
   const createDialog = useDialog();
-
   usePageView();
 
   return (
     <>
       <Head>
-        <title>Product: List | Better Path</title>
+        <title>Courses Dashboard | Better Path AI</title>
       </Head>
-      <Box
-        sx={{
-          flexGrow: 1,
-          py: 4,
-        }}
-      >
-        <Container maxWidth="xl" sx={{ height: "100%" }}>
-          <Stack spacing={4} sx={{ height: "100%" }}>
-            <Stack
-              alignItems="flex-start"
-              direction="row"
-              justifyContent="space-between"
-              spacing={1}
-            >
-              <div>
-                <Typography variant="h4">Products</Typography>
-              </div>
+      <Box sx={{ flexGrow: 1, py: 4 }}>
+        <Container maxWidth="xl">
+          <Stack spacing={4}>
+            <Stack direction="row" justifyContent="space-between" spacing={1}>
+              <Typography variant="h4">AI Courses</Typography>
               <Button
                 onClick={createDialog.handleOpen}
-                size="large"
                 startIcon={
                   <SvgIcon fontSize="small">
                     <PlusIcon />
@@ -189,51 +106,32 @@ const Page = () => {
                 }
                 variant="contained"
               >
-                Add
+                Add Course
               </Button>
             </Stack>
-            <ProductsStats />
-            <Card
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                flexGrow: 1,
-              }}
-            >
-              <ProductsSearch
-                disabled={productsStore.state.isLoading}
-                filters={productsSearch.state.filters}
-                onFiltersApply={productsSearch.handleFiltersApply}
-                onFiltersClear={productsSearch.handleFiltersClear}
-                onQueryChange={productsSearch.handleQueryChange}
-                onViewChange={productsSearch.handleViewChange}
-                query={productsSearch.state.query}
-                selected={productsSelection.selected}
-                view={productsSearch.state.view}
-              />
+            <CoursesStats />
+            <Card>
+              <CoursesSearch query={query} onQueryChange={handleQueryChange} />
               <Divider />
-              <ProductsTable
-                count={productsStore.state.data?.productsCount}
-                error={productsStore.state.error}
-                isLoading={productsStore.state.isLoading}
-                items={productsStore.state.data?.products}
-                onDeselectAll={productsSelection.handleDeselectAll}
-                onDeselectOne={productsSelection.handleDeselectOne}
-                onPageChange={productsSearch.handlePageChange}
-                onSelectAll={productsSelection.handleSelectAll}
-                onSelectOne={productsSelection.handleSelectOne}
-                onSortChange={productsSearch.handleSortChange}
-                page={productsSearch.state.page}
-                rowsPerPage={productsSearch.state.rowsPerPage}
-                selected={productsSelection.selected}
-                sortBy={productsSearch.state.sortBy}
-                sortDir={productsSearch.state.sortDir}
+              <CoursesTable
+                isLoading={isLoading}
+                courses={courses}
+                selectedCourses={selection.selected}
+                onSelectCourse={selection.handleSelect}
+                onPageChange={handlePageChange}
+                onRowsPerPageChange={handleRowsPerPageChange}
+                onSortChange={handleSortChange}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                sortBy={sortBy}
+                sortDir={sortDir}
+                error={error}
               />
             </Card>
           </Stack>
         </Container>
       </Box>
-      <ProductCreateDialog onClose={createDialog.handleClose} open={createDialog.open} />
+      <CourseCreateDialog onClose={createDialog.handleClose} open={createDialog.open} />
     </>
   );
 };
