@@ -8,7 +8,7 @@ import { useMounted } from "../../../../hooks/use-mounted";
 import { usePageView } from "../../../../hooks/use-page-view";
 import { Layout as DashboardLayout } from "../../../../layouts/dashboard";
 import { Layout as ProductLayout } from "../../../../layouts/product";
-import { ProductVariantsTable } from "../../../../sections/dashboard/products/course-modules-table";
+import ProductVariantsTable from "../../../../sections/dashboard/products/course-modules-table";
 
 const useProductStore = () => {
   const isMounted = useMounted();

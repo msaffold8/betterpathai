@@ -49,30 +49,36 @@ const languageOptions = [
 
 export const AccountPopover = (props) => {
   const {
-    direction = 'ltr',
-    language = 'en',
+    direction = "ltr",
+    language = "en",
     onDirectionSwitch,
     onLanguageChange,
     onOrganizationChange,
     onThemeSwitch,
     organizationId,
     organizations = [],
-    paletteMode = 'light',
+    paletteMode = "light",
     ...other
   } = props;
   const router = useRouter();
   const auth = useAuth();
   const user = useMockedUser();
-  const mdDown = useMediaQuery((theme) => theme.breakpoints.down('md'));
+  const mdDown = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const popover = usePopover();
 
-  const handleOrganizationChange = useCallback((event) => {
-    onOrganizationChange?.(event.target.value);
-  }, [onOrganizationChange]);
+  const handleOrganizationChange = useCallback(
+    (event) => {
+      onOrganizationChange?.(event.target.value);
+    },
+    [onOrganizationChange]
+  );
 
-  const handleLanguageChange = useCallback((event) => {
-    onLanguageChange?.(event.target.value);
-  }, [onLanguageChange]);
+  const handleLanguageChange = useCallback(
+    (event) => {
+      onLanguageChange?.(event.target.value);
+    },
+    [onLanguageChange]
+  );
 
   const handleLogout = useCallback(async () => {
     try {
@@ -100,14 +106,14 @@ export const AccountPopover = (props) => {
         }
 
         default: {
-          console.warn('Using an unknown Auth Issuer, did not log out');
+          console.warn("Using an unknown Auth Issuer, did not log out");
         }
       }
 
       router.push(paths.index);
     } catch (err) {
       console.error(err);
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
     }
   }, [auth, router, popover]);
 
@@ -122,36 +128,28 @@ export const AccountPopover = (props) => {
         onClick={popover.handleOpen}
         ref={popover.anchorRef}
         spacing={2}
-        sx={{ cursor: 'pointer' }}
-        {...other}>
+        sx={{ cursor: "pointer" }}
+        {...other}
+      >
         <Avatar
           src={user.avatar}
           variant="rounded"
           sx={{
             height: 40,
-            width: 40
+            width: 40,
           }}
         />
         {!mdDown && (
           <>
             <Box sx={{ minWidth: 100 }}>
-              <Typography
-                color="neutral.400"
-                variant="caption"
-              >
+              <Typography color="neutral.400" variant="caption">
                 Operations
               </Typography>
-              <Typography
-                color="inherit"
-                variant="subtitle2"
-              >
+              <Typography color="inherit" variant="subtitle2">
                 {user.name}
               </Typography>
             </Box>
-            <SvgIcon
-              color="action"
-              fontSize="small"
-            >
+            <SvgIcon color="action" fontSize="small">
               <ChevronDownIcon />
             </SvgIcon>
           </>
@@ -160,8 +158,8 @@ export const AccountPopover = (props) => {
       <Popover
         anchorEl={popover.anchorRef.current}
         anchorOrigin={{
-          horizontal: 'center',
-          vertical: 'bottom'
+          horizontal: "center",
+          vertical: "bottom",
         }}
         disableScrollLock
         onClose={popover.handleClose}
@@ -170,18 +168,10 @@ export const AccountPopover = (props) => {
       >
         {mdDown && (
           <Box sx={{ p: 2 }}>
-            <Select
-              fullWidth
-              native
-              onChange={handleOrganizationChange}
-              value={organization.id}
-            >
+            <Select fullWidth native onChange={handleOrganizationChange} value={organization.id}>
               {organizations.map((organization) => (
-                <option
-                  key={organization.id}
-                  value={organization.id}
-                >
-                  {organization.name}
+                <option key={organization.id} value={organization.id}>
+                  {organization.name} 
                 </option>
               ))}
             </Select>
@@ -190,34 +180,18 @@ export const AccountPopover = (props) => {
         <List>
           <ListItem divider>
             <ListItemAvatar>
-              <Avatar
-                src={user.avatar}
-                variant="rounded"
-              />
+              <Avatar src={user.avatar} variant="rounded" />
             </ListItemAvatar>
-            <ListItemText
-              primary={user.name}
-              secondary="Devias IO"
-            />
+            <ListItemText primary={user.name} secondary="Devias IO" />
           </ListItem>
           <li>
             <List disablePadding>
-              <ListSubheader disableSticky>
-                App Settings
-              </ListSubheader>
+              <ListSubheader disableSticky>App Settings</ListSubheader>
               {mdDown && (
                 <ListItem>
-                  <Select
-                    fullWidth
-                    native
-                    onChange={handleLanguageChange}
-                    value={language}
-                  >
+                  <Select fullWidth native onChange={handleLanguageChange} value={language}>
                     {languageOptions.map((option) => (
-                      <option
-                        key={option.value}
-                        value={option.value}
-                      >
+                      <option key={option.value} value={option.value}>
                         {option.label}
                       </option>
                     ))}
@@ -227,27 +201,14 @@ export const AccountPopover = (props) => {
               {mdDown && (
                 <ListItem sx={{ py: 0 }}>
                   <FormControlLabel
-                    control={(
-                      <Switch
-                        checked={paletteMode === 'dark'}
-                        onChange={onThemeSwitch}
-                      />
-                    )}
+                    control={<Switch checked={paletteMode === "dark"} onChange={onThemeSwitch} />}
                     label="Dark Mode"
                   />
                 </ListItem>
               )}
-              <ListItem
-                divider
-                sx={{ pt: 0 }}
-              >
+              <ListItem divider sx={{ pt: 0 }}>
                 <FormControlLabel
-                  control={(
-                    <Switch
-                      checked={direction === 'rtl'}
-                      onChange={onDirectionSwitch}
-                    />
-                  )}
+                  control={<Switch checked={direction === "rtl"} onChange={onDirectionSwitch} />}
                   label="RTL"
                 />
               </ListItem>
@@ -294,13 +255,14 @@ export const AccountPopover = (props) => {
 };
 
 AccountPopover.propTypes = {
-  direction: PropTypes.oneOf(['ltr', 'rtl']),
-  language: PropTypes.oneOf(['de', 'en', 'es']),
+  direction: PropTypes.oneOf(["ltr", "rtl"]),
+  language: PropTypes.oneOf(["de", "en", "es"]),
   onDirectionSwitch: PropTypes.func,
   onLanguageChange: PropTypes.func,
   onOrganizationChange: PropTypes.func,
   onThemeSwitch: PropTypes.func,
   organizationId: PropTypes.string.isRequired,
   organizations: PropTypes.array,
-  paletteMode: PropTypes.oneOf(['dark', 'light'])
+  paletteMode: PropTypes.oneOf(["dark", "light"]),
 };
+

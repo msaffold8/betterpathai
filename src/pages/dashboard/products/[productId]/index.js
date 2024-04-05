@@ -11,9 +11,9 @@ import { usePageView } from "../../../../hooks/use-page-view";
 import { Layout as DashboardLayout } from "../../../../layouts/dashboard";
 import { Layout as ProductLayout } from "../../../../layouts/product";
 import { ProductDetails } from "../../../../sections/dashboard/products/product-details";
-import { ProductDetailsDialog } from "../../../../sections/dashboard/products/course-module-dialog";
-import { ProductQuickActions } from "../../../../sections/dashboard/products/course-quick-actions";
-import { ProductVariants } from "../../../../sections/dashboard/products/course-modules";
+import ProductDetailsDialog from "../../../../sections/dashboard/products/course-module-dialog";
+import ProductQuickActions from "../../../../sections/dashboard/products/course-quick-actions";
+import ProductVariants from "../../../../sections/dashboard/products/course-modules";
 
 const useProductStore = () => {
   const isMounted = useMounted();

@@ -8,7 +8,7 @@ import { useSettings } from '../../hooks/use-settings';
 import { Footer } from './footer';
 import { MobileNav } from './mobile-nav';
 import { SideNav } from './side-nav';
-import { TopNav } from './top-nav';
+import TopNav from "./top-nav";
 
 const SIDE_NAV_WIDTH = 270;
 const SIDE_NAV_PINNED_WIDTH = 73;

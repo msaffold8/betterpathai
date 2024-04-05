@@ -2,15 +2,15 @@ import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import PlusIcon from "@heroicons/react/24/outline/PlusIcon";
 import { Box, Button, Card, Container, Divider, Stack, SvgIcon, Typography } from "@mui/material";
-import { coursesApi } from "../../../api/courses"; // Assuming the courses API endpoint
+// import { coursesApi } from "../../../api/courses"; // Assuming the courses API endpoint
 import { useDialog } from "../../../hooks/use-dialog";
 import { usePageView } from "../../../hooks/use-page-view";
 import { useSelection } from "../../../hooks/use-selection";
 import { Layout as DashboardLayout } from "../../../layouts/dashboard";
-import { CourseCreateDialog } from "../../../sections/dashboard/courses/course-create-dialog";
-import { CoursesSearch } from "../../../sections/dashboard/courses/courses-search";
-import { CoursesStats } from "../../../sections/dashboard/courses/courses-stats";
-import { CoursesTable } from "../../../sections/dashboard/courses/courses-table";
+// import { CourseCreateDialog } from "../../../sections/dashboard/courses/course-create-dialog";
+// import { CoursesSearch } from "../../../sections/dashboard/courses/courses-search";
+// import { CoursesStats } from "../../../sections/dashboard/courses/courses-stats";
+// import { CoursesTable } from "../../../sections/dashboard/courses/courses-table";
 
 const useCoursesSearch = () => {
   const [state, setState] = useState({

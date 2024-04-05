@@ -14,7 +14,7 @@ import {
   Stack,
 } from "@mui/material";
 import { Scrollbar } from "../../../components/scrollbar";
-import { CourseModuleDialog } from "./course-module-dialog";
+import CourseModuleDialog from "./course-module-dialog";
 import { useDialog } from "../../../hooks/use-dialog";
 
 export const CourseModules = ({ onModuleCreated, onModuleUpdated, modules = [], ...other }) => {

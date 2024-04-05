@@ -37,12 +37,12 @@ export const OrganizationPopover = (props) => {
         sx={{
           backgroundColor: alpha(common.white, 0.05),
           borderRadius: 1,
-          display: 'flex',
-          px: '12px',
-          py: '6px',
-          '&:hover': {
-            backgroundColor: alpha(common.white, 0.1)
-          }
+          display: "flex",
+          px: "12px",
+          py: "6px",
+          "&:hover": {
+            backgroundColor: alpha(common.white, 0.1),
+          },
         }}
       >
         <Typography
@@ -50,24 +50,20 @@ export const OrganizationPopover = (props) => {
           color="inherit"
           sx={{
             fontSize: 14,
-            lineHeight: '24px'
+            lineHeight: "24px",
           }}
         >
-          {organization.name}
+          {/* {organization.name} */} Hello world123
         </Typography>
-        <SvgIcon
-          color="action"
-          fontSize="small"
-          sx={{ ml: 3 }}
-        >
+        <SvgIcon color="action" fontSize="small" sx={{ ml: 3 }}>
           <ChevronUpDownIcon />
         </SvgIcon>
       </ButtonBase>
       <Popover
         anchorEl={popover.anchorRef.current}
         anchorOrigin={{
-          horizontal: 'left',
-          vertical: 'bottom'
+          horizontal: "left",
+          vertical: "bottom",
         }}
         disableScrollLock
         onClose={popover.handleClose}
@@ -75,14 +71,11 @@ export const OrganizationPopover = (props) => {
         PaperProps={{
           sx: {
             p: 1,
-            width: 160
-          }
+            width: 160,
+          },
         }}
       >
-        <MenuList
-          dense
-          sx={{ p: 0 }}
-        >
+        <MenuList dense sx={{ p: 0 }}>
           {organizations.map((organization) => {
             const isSelected = organization.id === organizationId;
 
@@ -93,9 +86,7 @@ export const OrganizationPopover = (props) => {
                 selected={isSelected}
                 sx={{ borderRadius: 1 }}
               >
-                <ListItemText>
-                  {organization.name}
-                </ListItemText>
+                <ListItemText>{organization.name}</ListItemText>
               </MenuItem>
             );
           })}
@@ -106,14 +97,14 @@ export const OrganizationPopover = (props) => {
           color="inherit"
           size="small"
           onClick={popover.handleClose}
-          startIcon={(
+          startIcon={
             <SvgIcon fontSize="small">
               <PlusIcon />
             </SvgIcon>
-          )}
+          }
           sx={{
-            justifyContent: 'flex-start',
-            textAlign: 'left'
+            justifyContent: "flex-start",
+            textAlign: "left",
           }}
         >
           Create Org
