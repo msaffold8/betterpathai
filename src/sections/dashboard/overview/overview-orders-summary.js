@@ -64,38 +64,39 @@ export const OverviewOrdersSummary = (props) => {
   return (
     <Card>
       <CardHeader
-        action={(
+        action={
           <ActionsMenu
             color="inherit"
             actions={[
               {
-                label: 'Last 7 days',
-                handler: () => { setRange('Last 7 days'); }
+                label: "Last 7 days",
+                handler: () => {
+                  setRange("Last 7 days");
+                },
               },
               {
-                label: 'Last Month',
-                handler: () => { setRange('Last Month'); }
+                label: "Last Month",
+                handler: () => {
+                  setRange("Last Month");
+                },
               },
               {
-                label: 'Last Year',
-                handler: () => { setRange('Last Year'); }
-              }
+                label: "Last Year",
+                handler: () => {
+                  setRange("Last Year");
+                },
+              },
             ]}
             label={range}
             size="small"
             variant="text"
           />
-        )}
-        title="Orders Summary"
+        }
+        title="Statistics"
       />
       <Divider />
       <CardContent>
-        <Chart
-          height={200}
-          options={chartOptions}
-          series={chartSeries}
-          type="donut"
-        />
+        <Chart height={200} options={chartOptions} series={chartSeries} type="donut" />
         <Stack
           alignItems="center"
           direction="row"
@@ -103,12 +104,8 @@ export const OverviewOrdersSummary = (props) => {
           spacing={1}
           sx={{ py: 1 }}
         >
-          <Typography variant="h5">
-            Total
-          </Typography>
-          <Typography variant="h5">
-            {total}
-          </Typography>
+          <Typography variant="h5">Total Hours</Typography>
+          <Typography variant="h5">{total}</Typography>
         </Stack>
         <Stack spacing={1}>
           {chartSeries.map((item, index) => (
@@ -120,31 +117,20 @@ export const OverviewOrdersSummary = (props) => {
               spacing={1}
               sx={{ py: 1 }}
             >
-              <Stack
-                alignItems="center"
-                direction="row"
-                spacing={1}
-                sx={{ flexGrow: 1 }}
-              >
+              <Stack alignItems="center" direction="row" spacing={1} sx={{ flexGrow: 1 }}>
                 <Box
                   sx={{
                     backgroundColor: chartOptions.colors[index],
-                    borderRadius: '50%',
+                    borderRadius: "50%",
                     height: 8,
-                    width: 8
+                    width: 8,
                   }}
                 />
-                <Typography
-                  color="text.secondary"
-                  variant="body2"
-                >
+                <Typography color="text.secondary" variant="body2">
                   {labels[index]}
                 </Typography>
               </Stack>
-              <Typography
-                color="text.secondary"
-                variant="body2"
-              >
+              <Typography color="text.secondary" variant="body2">
                 {item}
               </Typography>
             </Stack>

@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
-import PropTypes from 'prop-types';
-import { format } from 'date-fns';
+import PropTypes from "prop-types";
 import {
+  Avatar,
   Button,
   Card,
   CardHeader,
@@ -12,11 +12,21 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  Typography
-} from '@mui/material';
-import { paths } from '../../../paths';
-import numeral from 'numeral';
-import { Scrollbar } from '../../../components/scrollbar';
+  Typography,
+} from "@mui/material";
+import { paths } from "../../../paths";
+import { Scrollbar } from "../../../components/scrollbar";
+
+// Function to determine the chip background color based on the numerical level
+const getChipColor = (level) => {
+  if (level <= 10) {
+    return "#bdbdbd"; // Light grey for levels 1-10
+  } else if (level <= 20) {
+    return "#ff9800"; // Orange for levels 11-20
+  } else {
+    return "#212121"; // Darker grey (almost black) for levels above 20
+  }
+};
 
 export const OverviewLatestCustomers = (props) => {
   const { customers = [] } = props;
@@ -24,86 +34,44 @@ export const OverviewLatestCustomers = (props) => {
   return (
     <Card>
       <CardHeader
-        action={(
+        action={
           <Button
             color="inherit"
             component={NextLink}
             href={paths.dashboard.customers.index}
+            sx={{ color: "black" }}
           >
             View All
           </Button>
-        )}
-        title="Latest Customers"
+        }
+        title="Leaders"
       />
       <Divider />
       <Scrollbar>
         <Table sx={{ minWidth: 500 }}>
           <TableBody>
-            {customers.map((customer) => {
-              const createdDate = format(customer.createdAt, 'dd MMM');
-              const amountSpent = numeral(customer.amountSpent).format('$0,0.00');
-
-              return (
-                <TableRow key={customer.id}>
-                  <TableCell>
-                    <Stack alignItems="center">
-                      <Typography variant="subtitle2">
-                        {createdDate}
-                      </Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell>
-                    <Typography
-                      noWrap
-                      variant="body2"
-                    >
-                      {customer.name}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography
-                      color="text.secondary"
-                      noWrap
-                      variant="body2"
-                    >
-                      <Typography
-                        color="text.primary"
-                        component="span"
-                        variant="subtitle2"
-                      >
-                        {customer.orders}
-                      </Typography>
-                      {' '}
-                      orders placed
-                    </Typography>
-                    <Typography
-                      color="text.secondary"
-                      noWrap
-                      variant="body2"
-                    >
-                      <Typography
-                        color="text.primary"
-                        component="span"
-                        variant="subtitle2"
-                      >
-                        {amountSpent}
-                      </Typography>
-                      {' '}
-                      spent
-                    </Typography>
-                  </TableCell>
-                  <TableCell align="right">
-                    {customer.isOnboarded && (
-                      <Chip
-                        color="primary"
-                        label="Onboarded"
-                        size="small"
-                      />
-                    )}
-                  </TableCell>
-                </TableRow>
-              );
-            })}
+            {customers.map((customer) => (
+              <TableRow key={customer.id}>
+                <TableCell>
+                  <Avatar src={customer.avatar} alt={customer.name} />
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2" noWrap>
+                    {customer.name}
+                  </Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Chip
+                    label={`Level ${customer.level}`}
+                    size="medium"
+                    sx={{
+                      bgcolor: getChipColor(customer.level),
+                      color: "white",
+                    }}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </Scrollbar>
@@ -112,5 +80,5 @@ export const OverviewLatestCustomers = (props) => {
 };
 
 OverviewLatestCustomers.propTypes = {
-  customers: PropTypes.array
+  customers: PropTypes.array.isRequired,
 };

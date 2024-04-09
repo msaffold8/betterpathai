@@ -26,15 +26,15 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Reports: Overview | Better Path</title>
+        <title>Dashboard | Better Path</title>
       </Head>
       <div>
         <Grid container spacing={3}>
           <Grid xs={12}>
-            <Typography variant="h4">AI Course Recommendations</Typography>
+            <Typography variant="h4">Congratulations, You have reached Level 21 </Typography>
             {/* <AICourseRecommendationWidget /> */}
           </Grid>
-          <Grid xs={12} md={6}>
+          {/* <Grid xs={12} md={6}>
             <OverviewAccountSetup />
           </Grid>
           <Grid xs={12} md={6}>
@@ -144,7 +144,74 @@ const Page = () => {
                 value={item.value}
               />
             </Grid>
-          ))}
+          ))} */}
+          <Grid xs={12} md={6}>
+            <OverviewOrdersSummary
+              chartSeries={[60, 20, 15, 5]}
+              labels={[
+                "Industry Category 1",
+                "Industry Category 1",
+                "Industry Category 1",
+                "Other Courses",
+              ]}
+            />
+          </Grid>
+          <Grid xs={12} md={6}>
+            <OverviewLatestCustomers
+              customers={[
+                {
+                  id: "a105ac46530704806ca58ede",
+                  amountSpent: 684.45,
+                  avatar: "/assets/avatars/avatar-fabiano-jorioz.jpg",
+                  createdAt: subDays(subHours(subMinutes(now, 7), 3), 2).getTime(),
+                  isOnboarded: true,
+                  name: "Fabiano Jorioz",
+                  level: 25,
+                },
+                {
+                  id: "126ed71fc9cbfabc601c56c5",
+                  amountSpent: 0,
+                  avatar: "/assets/avatars/avatar-meggie-heinonen.jpg",
+                  createdAt: subDays(subHours(subMinutes(now, 7), 3), 2).getTime(),
+                  isOnboarded: false,
+                  name: "Meggie Heinonen",
+                  orders: 0,
+                  level: 10,
+                },
+                {
+                  id: "aafaeb0545357922aff32a7b",
+                  amountSpent: 32.25,
+                  avatar: "/assets/avatars/avatar-sean-picott.jpg",
+                  createdAt: subDays(subHours(subMinutes(now, 11), 2), 3).getTime(),
+                  isOnboarded: true,
+                  name: "Sean Picott",
+                  orders: 1,
+                  level: 15,
+                },
+                {
+                  id: "16b526d9e0fefe53f7eba66b",
+                  amountSpent: 0,
+                  avatar: "/assets/avatars/avatar-bell-covely.jpg",
+                  createdAt: subDays(subHours(subMinutes(now, 18), 9), 5).getTime(),
+                  isOnboarded: true,
+                  name: "Bell Covely",
+                  orders: 0,
+                  level: 35,
+                },
+                {
+                  id: "fe035356923629912236d9a2",
+                  amountSpent: 125.7,
+                  avatar: "/assets/avatars/avatar-giraud-lamlin.jpg",
+                  createdAt: subDays(subHours(subMinutes(now, 19), 18), 7).getTime(),
+                  isOnboarded: false,
+                  name: "Giraud Lamlin",
+                  orders: 1,
+                  level: 20,
+                },
+              ]}
+            />
+          </Grid>
+
           <Grid xs={12}>
             <OverviewBills
               chartSeries={[
@@ -173,63 +240,6 @@ const Page = () => {
                 {
                   label: "Overdue",
                   value: "$3,500.00",
-                },
-              ]}
-            />
-          </Grid>
-          <Grid xs={12} md={6}>
-            <OverviewOrdersSummary
-              chartSeries={[60, 20, 15, 5]}
-              labels={["Complete", "Pending", "Canceled", "Refunded"]}
-            />
-          </Grid>
-          <Grid xs={12} md={6}>
-            <OverviewLatestCustomers
-              customers={[
-                {
-                  id: "a105ac46530704806ca58ede",
-                  amountSpent: 684.45,
-                  avatar: "/assets/avatars/avatar-fabiano-jorioz.jpg",
-                  createdAt: subDays(subHours(subMinutes(now, 7), 3), 2).getTime(),
-                  isOnboarded: true,
-                  name: "Fabiano Jorioz",
-                  orders: 2,
-                },
-                {
-                  id: "126ed71fc9cbfabc601c56c5",
-                  amountSpent: 0,
-                  avatar: "/assets/avatars/avatar-meggie-heinonen.jpg",
-                  createdAt: subDays(subHours(subMinutes(now, 7), 3), 2).getTime(),
-                  isOnboarded: false,
-                  name: "Meggie Heinonen",
-                  orders: 0,
-                },
-                {
-                  id: "aafaeb0545357922aff32a7b",
-                  amountSpent: 32.25,
-                  avatar: "/assets/avatars/avatar-sean-picott.jpg",
-                  createdAt: subDays(subHours(subMinutes(now, 11), 2), 3).getTime(),
-                  isOnboarded: true,
-                  name: "Sean Picott",
-                  orders: 1,
-                },
-                {
-                  id: "16b526d9e0fefe53f7eba66b",
-                  amountSpent: 0,
-                  avatar: "/assets/avatars/avatar-bell-covely.jpg",
-                  createdAt: subDays(subHours(subMinutes(now, 18), 9), 5).getTime(),
-                  isOnboarded: true,
-                  name: "Bell Covely",
-                  orders: 0,
-                },
-                {
-                  id: "fe035356923629912236d9a2",
-                  amountSpent: 125.7,
-                  avatar: "/assets/avatars/avatar-giraud-lamlin.jpg",
-                  createdAt: subDays(subHours(subMinutes(now, 19), 18), 7).getTime(),
-                  isOnboarded: false,
-                  name: "Giraud Lamlin",
-                  orders: 1,
                 },
               ]}
             />

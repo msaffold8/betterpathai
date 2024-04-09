@@ -15,7 +15,7 @@ import ShowIcon from '../../icons/iconly/bulk/show';
 
 export const items = [
   {
-    title: "Overview",
+    title: "Dashboard",
     path: paths.dashboard.index,
     icon: (
       <SvgIcon>
@@ -24,7 +24,7 @@ export const items = [
     ),
   },
   {
-    title: "Course Progress",
+    title: "Statistics",
     path: paths.dashboard.sales,
     icon: (
       <SvgIcon>
@@ -183,85 +183,85 @@ export const items = [
       </SvgIcon>
     ),
   },
-  {
-    title: "Foundation",
-    icon: (
-      <SvgIcon>
-        <ShowIcon />
-      </SvgIcon>
-    ),
-    items: [
-      {
-        title: "Typography",
-        path: paths.dashboard.foundation.typography,
-      },
-      {
-        title: "Colors",
-        path: paths.dashboard.foundation.colors,
-      },
-      {
-        title: "Shadows",
-        path: paths.dashboard.foundation.shadows,
-      },
-      {
-        title: "Buttons",
-        path: paths.dashboard.foundation.buttons,
-      },
-      {
-        title: "Inputs",
-        path: paths.dashboard.foundation.inputs,
-      },
-      {
-        title: "Tables",
-        path: paths.dashboard.foundation.tables,
-      },
-      {
-        title: "Blank Page",
-        path: paths.dashboard.foundation.blank,
-      },
-    ],
-  },
-  {
-    title: "Components",
-    icon: (
-      <SvgIcon>
-        <CategoryIcon />
-      </SvgIcon>
-    ),
-    items: [
-      {
-        title: "Data States",
-        path: paths.dashboard.components.dataStates,
-      },
-      {
-        title: "Lists",
-        path: paths.dashboard.components.lists,
-      },
-      {
-        title: "Stats",
-        path: paths.dashboard.components.stats,
-      },
-      {
-        title: "Page Headings",
-        path: paths.dashboard.components.pageHeadings,
-      },
-      {
-        title: "Card Headings",
-        path: paths.dashboard.components.cardHeadings,
-      },
-      {
-        title: "Image Uploader",
-        path: paths.dashboard.components.imageUploader,
-      },
-      {
-        title: "Onboarding",
-        path: paths.dashboard.components.onboarding,
-      },
-    ],
-  },
+  // {
+  //   title: "Foundation",
+  //   icon: (
+  //     <SvgIcon>
+  //       <ShowIcon />
+  //     </SvgIcon>
+  //   ),
+  //   items: [
+  //     {
+  //       title: "Typography",
+  //       path: paths.dashboard.foundation.typography,
+  //     },
+  //     {
+  //       title: "Colors",
+  //       path: paths.dashboard.foundation.colors,
+  //     },
+  //     {
+  //       title: "Shadows",
+  //       path: paths.dashboard.foundation.shadows,
+  //     },
+  //     {
+  //       title: "Buttons",
+  //       path: paths.dashboard.foundation.buttons,
+  //     },
+  //     {
+  //       title: "Inputs",
+  //       path: paths.dashboard.foundation.inputs,
+  //     },
+  //     {
+  //       title: "Tables",
+  //       path: paths.dashboard.foundation.tables,
+  //     },
+  //     {
+  //       title: "Blank Page",
+  //       path: paths.dashboard.foundation.blank,
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Components",
+  //   icon: (
+  //     <SvgIcon>
+  //       <CategoryIcon />
+  //     </SvgIcon>
+  //   ),
+  //   items: [
+  //     {
+  //       title: "Data States",
+  //       path: paths.dashboard.components.dataStates,
+  //     },
+  //     {
+  //       title: "Lists",
+  //       path: paths.dashboard.components.lists,
+  //     },
+  //     {
+  //       title: "Stats",
+  //       path: paths.dashboard.components.stats,
+  //     },
+  //     {
+  //       title: "Page Headings",
+  //       path: paths.dashboard.components.pageHeadings,
+  //     },
+  //     {
+  //       title: "Card Headings",
+  //       path: paths.dashboard.components.cardHeadings,
+  //     },
+  //     {
+  //       title: "Image Uploader",
+  //       path: paths.dashboard.components.imageUploader,
+  //     },
+  //     {
+  //       title: "Onboarding",
+  //       path: paths.dashboard.components.onboarding,
+  //     },
+  //   ],
+  // },
   {
     title: "Documentation",
-    path: paths.docs.welcome,
+    path: paths.docs.betterpathai,
     external: true,
     icon: (
       <SvgIcon>
