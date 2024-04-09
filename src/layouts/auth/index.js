@@ -23,28 +23,25 @@ export const Layout = (props) => {
       <Box
         component="header"
         sx={{
-          backgroundColor: 'background.paper',
-          position: 'sticky'
+          backgroundColor: "background.paper",
+          position: "sticky",
         }}
       >
-        <Container
-          maxWidth="md"
-          sx={{ height: TOP_NAV_HEIGHT }}
-        >
+        <Container maxWidth="md" sx={{ height: TOP_NAV_HEIGHT }}>
           <Box
             sx={{
-              alignItems: 'center',
-              display: 'flex',
-              height: '100%'
+              alignItems: "center",
+              display: "flex",
+              height: "100%",
             }}
           >
             <Box
               component={NextLink}
               href={paths.index}
               sx={{
-                display: 'inline-flex',
+                display: "inline-flex",
                 height: 24,
-                width: 24
+                width: 24,
               }}
             >
               <Logo />
@@ -55,9 +52,9 @@ export const Layout = (props) => {
       <Box
         component="main"
         sx={{
-          backgroundColor: 'background.paper',
+          backgroundColor: "background.paper",
           flexGrow: 1,
-          py: '64px'
+          py: "64px",
         }}
       >
         <Container maxWidth="sm">
@@ -65,10 +62,10 @@ export const Layout = (props) => {
           <Divider
             sx={{
               mb: 3,
-              mt: 6
+              mt: 6,
             }}
           />
-          <Stack
+          {/* <Stack
             alignItems="center"
             spacing={2}
           >
@@ -116,7 +113,7 @@ export const Layout = (props) => {
                 );
               })}
             </Stack>
-          </Stack>
+          </Stack> */}
         </Container>
       </Box>
     </>
