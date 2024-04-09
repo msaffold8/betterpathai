@@ -65,6 +65,12 @@ export const success = withAlphas({
   dark: '#0B815A',
   contrastText: '#FFFFFF'
 });
+export const black = withAlphas({
+  light: "#000000",
+  main: "#000000",
+  dark: "#0B815A",
+  contrastText: "#FFFFFF",
+});
 
 export const info = withAlphas({
   light: '#CFF9FE',

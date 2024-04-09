@@ -171,7 +171,7 @@ export const AccountPopover = (props) => {
             <Select fullWidth native onChange={handleOrganizationChange} value={organization.id}>
               {organizations.map((organization) => (
                 <option key={organization.id} value={organization.id}>
-                  {organization.name} 
+                  {organization.name}
                 </option>
               ))}
             </Select>
@@ -182,7 +182,7 @@ export const AccountPopover = (props) => {
             <ListItemAvatar>
               <Avatar src={user.avatar} variant="rounded" />
             </ListItemAvatar>
-            <ListItemText primary={user.name} secondary="Devias IO" />
+            <ListItemText primary={user.name} secondary="Better Path AI" />
           </ListItem>
           <li>
             <List disablePadding>

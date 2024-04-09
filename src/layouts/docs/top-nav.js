@@ -5,28 +5,29 @@ import { Box, Chip, IconButton, Stack, SvgIcon, useMediaQuery } from '@mui/mater
 import { Logo } from '../../components/logo';
 import { paths } from '../../paths';
 
-const TOP_NAV_HEIGHT = 64;
+const TOP_NAV_HEIGHT = 604;
 
 export const TopNav = (props) => {
   const { onMobileNavOpen, ...other } = props;
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
+  const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
     <Box
       component="header"
       sx={{
-        backgroundColor: 'background.paper',
-        borderBottomColor: 'divider',
-        borderBottomStyle: 'solid',
+        backgroundColor: "background.paper",
+        borderBottomColor: "divider",
+        borderBottomStyle: "solid",
         borderBottomWidth: 1,
-        color: 'text.secondary',
+        color: "text.secondary",
         left: 0,
-        position: 'sticky',
+        position: "sticky",
         top: 0,
-        width: '100%',
-        zIndex: (theme) => theme.zIndex.appBar
+        width: "100%",
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
-      {...other}>
+      {...other}
+    >
       <Stack
         alignItems="center"
         direction="row"
@@ -34,40 +35,26 @@ export const TopNav = (props) => {
         spacing={2}
         sx={{
           minHeight: TOP_NAV_HEIGHT,
-          px: 2
+          px: 2,
         }}
       >
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={1}
-        >
+        <Stack alignItems="center" direction="row" spacing={1}>
           <Box
             component={NextLink}
             href={paths.index}
             sx={{
-              display: 'inline-flex',
+              display: "inline-flex",
               height: 24,
-              width: 24
+              width: 24,
             }}
           >
             <Logo />
           </Box>
-          <Chip
-            label="v3.0.0"
-            size="small"
-          />
+          <Chip label="v3.0.0" size="small" />
         </Stack>
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-        >
+        <Stack alignItems="center" direction="row" spacing={2}>
           {!lgUp && (
-            <IconButton
-              color="inherit"
-              onClick={onMobileNavOpen}
-            >
+            <IconButton color="inherit" onClick={onMobileNavOpen}>
               <SvgIcon>
                 <Bars3Icon />
               </SvgIcon>

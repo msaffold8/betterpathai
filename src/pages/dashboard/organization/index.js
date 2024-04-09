@@ -20,7 +20,7 @@ import { Layout as OrganizationLayout } from "../../../layouts/organization";
 const companySizeOptions = ["1", "2-10", "11-30", "31-50", "50+"];
 
 const initialValues = {
-  companyName: "Devias IO",
+  companyName: "Better Path AI",
   companySize: "2-10",
   submit: null,
 };

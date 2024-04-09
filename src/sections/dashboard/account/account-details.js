@@ -19,12 +19,12 @@ import { useMockedUser } from '../../../hooks/use-mocked-user';
 const companySizeOptions = ['1-10', '11-30', '31-50', '50+'];
 
 const initialValues = {
-  companyName: 'Devias IO',
-  companySize: '1-10',
-  email: 'chen.simmons@devias.io',
-  jobTitle: 'Photographer',
-  name: 'Nicole B',
-  submit: null
+  companyName: "Better Path AI",
+  companySize: "1-10",
+  email: "chen.simmons@devias.io",
+  jobTitle: "Photographer",
+  name: "Nicole B",
+  submit: null,
 };
 
 const validationSchema = Yup.object({

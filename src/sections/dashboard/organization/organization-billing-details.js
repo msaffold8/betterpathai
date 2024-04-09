@@ -10,41 +10,19 @@ export const OrganizationBillingDetails = () => {
   return (
     <Card>
       <CardHeader
-        action={(
-          <Button
-            color="inherit"
-            size="small"
-          >
+        action={
+          <Button color="inherit" size="small">
             Edit
           </Button>
-        )}
+        }
         title="Billing Details"
       />
       <Divider />
       <PropertyList>
-        <PropertyListItem
-          align={align}
-          divider
-          label="Name/Company"
-          value="Devias IO"
-        />
-        <PropertyListItem
-          align={align}
-          divider
-          label="Country"
-          value="Germany"
-        />
-        <PropertyListItem
-          align={align}
-          divider
-          label="Zip Code"
-          value="6753454"
-        />
-        <PropertyListItem
-          align={align}
-          label="City"
-          value="Berlin"
-        />
+        <PropertyListItem align={align} divider label="Name/Company" value="Better Path AI" />
+        <PropertyListItem align={align} divider label="Country" value="Germany" />
+        <PropertyListItem align={align} divider label="Zip Code" value="6753454" />
+        <PropertyListItem align={align} label="City" value="Berlin" />
       </PropertyList>
     </Card>
   );
