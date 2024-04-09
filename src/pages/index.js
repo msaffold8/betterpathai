@@ -19,12 +19,12 @@ const Page = () => {
       </Head>
       <main>
         <HomeHero />
-        <HomeSupport />
+        {/* <HomeSupport />
         <HomeFeatures />
         <HomeUserFlows />
         <HomeCompare />
-        <HomePricing />
-        <HomeFaqs />
+        <HomePricing /> */}
+        {/* <HomeFaqs /> */}
       </main>
     </>
   );

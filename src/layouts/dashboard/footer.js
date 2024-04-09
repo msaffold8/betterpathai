@@ -16,31 +16,28 @@ export const Footer = () => (
     <Container
       maxWidth="xl"
       sx={{
-        display: 'flex',
+        display: "flex",
         flexDirection: {
-          xs: 'column',
-          sm: 'row'
+          xs: "column",
+          sm: "row",
         },
         py: 3,
-        '& a': {
+        "& a": {
           mt: {
             xs: 1,
-            sm: 0
+            sm: 0,
           },
-          '&:not(:last-child)': {
+          "&:not(:last-child)": {
             mr: {
               xs: 0,
-              sm: 5
-            }
-          }
-        }
+              sm: 5,
+            },
+          },
+        },
       }}
     >
-      <Typography
-        color="text.secondary"
-        variant="caption"
-      >
-        © 2023 Devias
+      <Typography color="text.secondary" variant="caption">
+        © 2024 Better Path AI
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       {items.map((link) => (
