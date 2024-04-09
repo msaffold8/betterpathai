@@ -15,25 +15,25 @@ import ShowIcon from '../../icons/iconly/bulk/show';
 
 export const items = [
   {
-    title: 'Overview',
+    title: "Overview",
     path: paths.dashboard.index,
     icon: (
       <SvgIcon>
         <GraphIcon />
       </SvgIcon>
-    )
+    ),
   },
   {
-    title: 'Course Progress',
+    title: "Course Progress",
     path: paths.dashboard.sales,
     icon: (
       <SvgIcon>
         <ChartIcon />
       </SvgIcon>
-    )
+    ),
   },
   {
-    title: 'Industry Peers',
+    title: "Industry Peers",
     path: paths.dashboard.customers.index,
     icon: (
       <SvgIcon>
@@ -42,25 +42,25 @@ export const items = [
     ),
     items: [
       {
-        title: 'Peer Directory',
-        path: paths.dashboard.customers.index
+        title: "Peer Directory",
+        path: paths.dashboard.customers.index,
       },
       {
-        title: 'Peer Insights',
-        path: paths.dashboard.customers.details.index
+        title: "Peer Insights",
+        path: paths.dashboard.customers.details.index,
       },
       {
-        title: 'Orders',
-        path: paths.dashboard.customers.details.orders
+        title: "Orders",
+        path: paths.dashboard.customers.details.orders,
       },
       {
-        title: 'Activity',
-        path: paths.dashboard.customers.details.activity
-      }
-    ]
+        title: "Activity",
+        path: paths.dashboard.customers.details.activity,
+      },
+    ],
   },
   {
-    title: 'My Courses',
+    title: "My Courses",
     path: paths.dashboard.orders.index,
     icon: (
       <SvgIcon>
@@ -69,17 +69,17 @@ export const items = [
     ),
     items: [
       {
-        title: 'List',
-        path: paths.dashboard.orders.index
+        title: "List",
+        path: paths.dashboard.orders.index,
       },
       {
-        title: 'Summary',
-        path: paths.dashboard.orders.details
-      }
-    ]
+        title: "Summary",
+        path: paths.dashboard.orders.details,
+      },
+    ],
   },
   {
-    title: 'AI Toolkits',
+    title: "AI Toolkits",
     path: paths.dashboard.products.index,
     icon: (
       <SvgIcon>
@@ -88,25 +88,25 @@ export const items = [
     ),
     items: [
       {
-        title: 'Tools List',
-        path: paths.dashboard.products.index
+        title: "Tools List",
+        path: paths.dashboard.products.index,
       },
       {
-        title: 'Tool Interactions',
-        path: paths.dashboard.products.details.index
+        title: "Tool Interactions",
+        path: paths.dashboard.products.details.index,
       },
       {
-        title: 'Resource Library',
-        path: paths.dashboard.products.details.inventory
+        title: "Resource Library",
+        path: paths.dashboard.products.details.inventory,
       },
       {
-        title: 'Industry trends',
-        path: paths.dashboard.products.details.insights
-      }
-    ]
+        title: "Industry trends",
+        path: paths.dashboard.products.details.insights,
+      },
+    ],
   },
   {
-    title: 'Certifications',
+    title: "Certifications",
     path: paths.dashboard.invoices.index,
     icon: (
       <SvgIcon>
@@ -115,25 +115,25 @@ export const items = [
     ),
     items: [
       {
-        title: 'List',
-        path: paths.dashboard.invoices.index
+        title: "List",
+        path: paths.dashboard.invoices.index,
       },
       {
-        title: 'Add Certification',
-        path: paths.dashboard.invoices.create
+        title: "Add Certification",
+        path: paths.dashboard.invoices.create,
       },
       {
-        title: 'Details',
-        path: paths.dashboard.invoices.details.index
+        title: "Details",
+        path: paths.dashboard.invoices.details.index,
       },
       {
-        title: 'Preview',
-        path: paths.dashboard.invoices.details.preview
-      }
-    ]
+        title: "Preview",
+        path: paths.dashboard.invoices.details.preview,
+      },
+    ],
   },
   {
-    title: 'Account',
+    title: "Account",
     path: paths.dashboard.account.index,
     icon: (
       <SvgIcon>
@@ -142,17 +142,17 @@ export const items = [
     ),
     items: [
       {
-        title: 'General Settings',
-        path: paths.dashboard.account.index
+        title: "General Settings",
+        path: paths.dashboard.account.index,
       },
       {
-        title: 'Notifications',
-        path: paths.dashboard.account.notifications
-      }
-    ]
+        title: "Notifications",
+        path: paths.dashboard.account.notifications,
+      },
+    ],
   },
   {
-    title: 'Organization',
+    title: "Organization",
     path: paths.dashboard.organization.index,
     icon: (
       <SvgIcon>
@@ -161,30 +161,30 @@ export const items = [
     ),
     items: [
       {
-        title: 'General Settings',
-        path: paths.dashboard.organization.index
+        title: "General Settings",
+        path: paths.dashboard.organization.index,
       },
       {
-        title: 'Team',
-        path: paths.dashboard.organization.team
+        title: "Team",
+        path: paths.dashboard.organization.team,
       },
       {
-        title: 'Billing',
-        path: paths.dashboard.organization.billing
-      }
-    ]
+        title: "Billing",
+        path: paths.dashboard.organization.billing,
+      },
+    ],
   },
   {
-    title: 'Calendar',
+    title: "Calendar",
     path: paths.dashboard.calendar,
     icon: (
       <SvgIcon>
         <CalendarIcon />
       </SvgIcon>
-    )
+    ),
   },
   {
-    title: 'Foundation',
+    title: "Foundation",
     icon: (
       <SvgIcon>
         <ShowIcon />
@@ -192,37 +192,37 @@ export const items = [
     ),
     items: [
       {
-        title: 'Typography',
-        path: paths.dashboard.foundation.typography
+        title: "Typography",
+        path: paths.dashboard.foundation.typography,
       },
       {
-        title: 'Colors',
-        path: paths.dashboard.foundation.colors
+        title: "Colors",
+        path: paths.dashboard.foundation.colors,
       },
       {
-        title: 'Shadows',
-        path: paths.dashboard.foundation.shadows
+        title: "Shadows",
+        path: paths.dashboard.foundation.shadows,
       },
       {
-        title: 'Buttons',
-        path: paths.dashboard.foundation.buttons
+        title: "Buttons",
+        path: paths.dashboard.foundation.buttons,
       },
       {
-        title: 'Inputs',
-        path: paths.dashboard.foundation.inputs
+        title: "Inputs",
+        path: paths.dashboard.foundation.inputs,
       },
       {
-        title: 'Tables',
-        path: paths.dashboard.foundation.tables
+        title: "Tables",
+        path: paths.dashboard.foundation.tables,
       },
       {
-        title: 'Blank Page',
-        path: paths.dashboard.foundation.blank
-      }
-    ]
+        title: "Blank Page",
+        path: paths.dashboard.foundation.blank,
+      },
+    ],
   },
   {
-    title: 'Components',
+    title: "Components",
     icon: (
       <SvgIcon>
         <CategoryIcon />
@@ -230,43 +230,43 @@ export const items = [
     ),
     items: [
       {
-        title: 'Data States',
-        path: paths.dashboard.components.dataStates
+        title: "Data States",
+        path: paths.dashboard.components.dataStates,
       },
       {
-        title: 'Lists',
-        path: paths.dashboard.components.lists
+        title: "Lists",
+        path: paths.dashboard.components.lists,
       },
       {
-        title: 'Stats',
-        path: paths.dashboard.components.stats
+        title: "Stats",
+        path: paths.dashboard.components.stats,
       },
       {
-        title: 'Page Headings',
-        path: paths.dashboard.components.pageHeadings
+        title: "Page Headings",
+        path: paths.dashboard.components.pageHeadings,
       },
       {
-        title: 'Card Headings',
-        path: paths.dashboard.components.cardHeadings
+        title: "Card Headings",
+        path: paths.dashboard.components.cardHeadings,
       },
       {
-        title: 'Image Uploader',
-        path: paths.dashboard.components.imageUploader
+        title: "Image Uploader",
+        path: paths.dashboard.components.imageUploader,
       },
       {
-        title: 'Onboarding',
-        path: paths.dashboard.components.onboarding
-      }
-    ]
+        title: "Onboarding",
+        path: paths.dashboard.components.onboarding,
+      },
+    ],
   },
   {
-    title: 'Documentation',
+    title: "Documentation",
     path: paths.docs.welcome,
     external: true,
     icon: (
       <SvgIcon>
         <DocumentIcon />
       </SvgIcon>
-    )
-  }
+    ),
+  },
 ];

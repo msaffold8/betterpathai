@@ -32,31 +32,31 @@ export const SideNavItem = (props) => {
         <ButtonBase
           onClick={handleToggle}
           sx={{
-            alignItems: 'center',
+            alignItems: "center",
             borderRadius: 1,
-            display: 'flex',
+            display: "flex",
             fontFamily: (theme) => theme.typography.fontFamily,
             fontSize: 14,
             fontWeight: 500,
-            justifyContent: 'flex-start',
-            px: '6px',
-            py: '12px',
-            textAlign: 'left',
-            whiteSpace: 'nowrap',
-            width: '100%'
+            justifyContent: "flex-start",
+            px: "6px",
+            py: "12px",
+            textAlign: "left",
+            whiteSpace: "nowrap",
+            width: "100%",
           }}
         >
           <Box
             component="span"
             sx={{
-              alignItems: 'center',
-              color: 'neutral.400',
-              display: 'inline-flex',
+              alignItems: "center",
+              color: "orange",
+              display: "inline-flex",
               flexGrow: 0,
               flexShrink: 0,
               height: 24,
-              justifyContent: 'center',
-              width: 24
+              justifyContent: "center",
+              width: 24,
             }}
           >
             {icon}
@@ -64,38 +64,35 @@ export const SideNavItem = (props) => {
           <Box
             component="span"
             sx={{
-              color: depth === 0 ? 'text.primary' : 'text.secondary',
+              color: depth === 0 ? "#ffffff" : "#ffffff",
               flexGrow: 1,
               fontSize: 14,
-              mx: '12px',
-              transition: 'opacity 250ms ease-in-out',
+              mx: "12px",
+              transition: "opacity 250ms ease-in-out",
               ...(active && {
-                color: 'primary.main'
+                color: "#ffffff",
               }),
               ...(collapse && {
-                opacity: 0
-              })
+                opacity: 0,
+              }),
             }}
           >
             {title}
           </Box>
           <SvgIcon
             sx={{
-              color: 'neutral.500',
+              color: "orange",
               fontSize: 16,
-              transition: 'opacity 250ms ease-in-out',
+              transition: "opacity 250ms ease-in-out",
               ...(collapse && {
-                opacity: 0
-              })
+                opacity: 0,
+              }),
             }}
           >
             {open ? <ChevronDownIcon /> : <ChevronRightIcon />}
           </SvgIcon>
         </ButtonBase>
-        <Collapse
-          in={!collapse && open}
-          unmountOnExit
-        >
+        <Collapse in={!collapse && open} unmountOnExit>
           {children}
         </Collapse>
       </li>
@@ -107,45 +104,46 @@ export const SideNavItem = (props) => {
   const linkProps = path
     ? external
       ? {
-        component: 'a',
-        href: path,
-        target: '_blank'
-      }
+          component: "a",
+          href: path,
+          target: "_blank",
+        }
       : {
-        component: NextLink,
-        href: path
-      }
+          component: NextLink,
+          href: path,
+        }
     : {};
 
   return (
     <li>
       <ButtonBase
         sx={{
-          alignItems: 'center',
+          alignItems: "center",
           borderRadius: 1,
-          display: 'flex',
+          display: "flex",
           fontFamily: (theme) => theme.typography.fontFamily,
           fontSize: 14,
           fontWeight: 500,
-          justifyContent: 'flex-start',
-          px: '6px',
-          py: '12px',
-          textAlign: 'left',
-          whiteSpace: 'nowrap',
-          width: '100%'
+          justifyContent: "flex-start",
+          px: "6px",
+          py: "12px",
+          textAlign: "left",
+          whiteSpace: "nowrap",
+          width: "100%",
         }}
-        {...linkProps}>
+        {...linkProps}
+      >
         <Box
           component="span"
           sx={{
-            alignItems: 'center',
-            color: 'neutral.400',
-            display: 'inline-flex',
+            alignItems: "center",
+            color: "orange",
+            display: "inline-flex",
             flexGrow: 0,
             flexShrink: 0,
             height: 24,
-            justifyContent: 'center',
-            width: 24
+            justifyContent: "center",
+            width: 24,
           }}
         >
           {icon}
@@ -153,16 +151,16 @@ export const SideNavItem = (props) => {
         <Box
           component="span"
           sx={{
-            color: depth === 0 ? 'text.primary' : 'text.secondary',
+            color: depth === 0 ? "#ffffff" : "#ffffff",
             flexGrow: 1,
-            mx: '12px',
-            transition: 'opacity 250ms ease-in-out',
+            mx: "12px",
+            transition: "opacity 250ms ease-in-out",
             ...(active && {
-              color: 'primary.main'
+              color: "orange",
             }),
             ...(collapse && {
-              opacity: 0
-            })
+              opacity: 0,
+            }),
           }}
         >
           {title}
@@ -170,12 +168,12 @@ export const SideNavItem = (props) => {
         {external && (
           <SvgIcon
             sx={{
-              color: 'neutral.500',
+              color: "orange",
               fontSize: 18,
-              transition: 'opacity 250ms ease-in-out',
+              transition: "opacity 250ms ease-in-out",
               ...(collapse && {
-                opacity: 0
-              })
+                opacity: 0,
+              }),
             }}
           >
             <ArrowTopRightOnSquareIcon />

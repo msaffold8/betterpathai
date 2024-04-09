@@ -87,51 +87,55 @@ export const SideNav = (props) => {
       open
       variant="permanent"
       PaperProps={{
-        onMouseEnter: () => { setHovered(true); },
-        onMouseLeave: () => { setHovered(false); },
+        onMouseEnter: () => {
+          setHovered(true);
+        },
+        onMouseLeave: () => {
+          setHovered(false);
+        },
         sx: {
-          backgroundColor: 'background.default',
+          backgroundColor: "#000000",
           height: `calc(100% - ${TOP_NAV_HEIGHT}px)`,
-          overflowX: 'hidden',
+          overflowX: "hidden",
           top: TOP_NAV_HEIGHT,
-          transition: 'width 250ms ease-in-out',
+          transition: "width 250ms ease-in-out",
           width: collapse ? SIDE_NAV_COLLAPSED_WIDTH : SIDE_NAV_WIDTH,
-          zIndex: (theme) => theme.zIndex.appBar - 100
-        }
+          zIndex: (theme) => theme.zIndex.appBar - 100,
+        },
       }}
     >
       <Scrollbar
         sx={{
-          height: '100%',
-          overflowX: 'hidden',
-          '& .simplebar-content': {
-            height: '100%'
-          }
+          height: "100%",
+          overflowX: "hidden",
+          "& .simplebar-content": {
+            height: "100%",
+          },
         }}
       >
         <Box
           component="nav"
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-            p: 2
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            p: 2,
           }}
         >
           <Box
             component="ul"
             sx={{
               flexGrow: 1,
-              listStyle: 'none',
+              listStyle: "none",
               m: 0,
-              p: 0
+              p: 0,
             }}
           >
             {renderItems({
               collapse,
               depth: 0,
               items,
-              pathname
+              pathname,
             })}
           </Box>
           <Divider />

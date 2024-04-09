@@ -36,7 +36,7 @@ export const Layout = (props) => {
         <Stack spacing={4}>
           <Stack spacing={2}>
             <div>
-              <Typography variant="h4">Reports</Typography>
+              <Typography variant="h4">Dashboard</Typography>
             </div>
             <div>
               <Tabs onChange={handleTabsChange} value={currentTab?.path} variant="scrollable">
